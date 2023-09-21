@@ -18,11 +18,13 @@ def formatting(fact: str):
 
 
 @flow
-def pipe(key: str):
+def pipe(mykey="mykey_pipe_default"):
+    logger.info(f"Hi {mykey}")
     logger = get_run_logger()
-    logger.info("Hi {key}")
     fact = fetch_cat_fact()
+    logger.info(f"fact {fact}")
     formatted_fact = formatting(fact)
+    logger.info(f"Formatted fact {formatted_fact}")
 
 
 if __name__ == "__main__":
