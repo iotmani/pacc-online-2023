@@ -4,7 +4,7 @@
 # so we'll just persist the result to storage
 
 import httpx
-from prefect import flow, task
+from prefect import flow, task, get_run_logger
 
 
 @task
@@ -18,10 +18,12 @@ def formatting(fact: str):
 
 
 @flow
-def pipe():
+def pipe(key: str):
+    logger = get_run_logger()
+    logger.info("Hi {key}")
     fact = fetch_cat_fact()
     formatted_fact = formatting(fact)
 
 
 if __name__ == "__main__":
-    pipe()
+    pipe(key="original_key")
