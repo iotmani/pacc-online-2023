@@ -28,4 +28,4 @@ def pipe(mykey="mykey_pipe_default"):
 
 
 if __name__ == "__main__":
-    pipe(key="original_key")
+    pipe(mykey="mykey_pipe_default")
